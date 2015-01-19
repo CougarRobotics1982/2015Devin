@@ -39,14 +39,14 @@ void Control(Joystick * js, Servo * sX,Servo * sY) {
 	double x;
 	double y;
 	//Get X Axis Value
-	x = js->GetX();
+	x = js->GetZ();
 	//If X is close to 0, reset it to 0
 	if(x<.2 && x>-.2){
 		x = 0;
 	}
 
 	//Get Y Axis Value
-	y = js->GetY();
+	y = js->GetThrottle();
 	//If Y is close to 0, reset it to 0
 	if(y<.2 && y>-.2){
 		y = 0;

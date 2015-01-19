@@ -28,28 +28,37 @@ void Servo_Control::Initialize() {
 // Called repeatedly when this Command is scheduled to run
 void Servo_Control::Execute() {
 
-
+	Joystick * Joystick2;
+	Joystick2 = Robot::oi->getXbox();
 	double x;
 	double y;
+	double x2 = 0;
+	double y2 = 0;
 	//Get X Axis Value
-	x = Joystick2->GetX();
+	x = Joystick2->GetZ();
 	//If X is close to 0, reset it to 0
 	if(x<.2 && x>-.2){
 		x = 0;
+	}else {
+		//Add current X to temp value so motor doesn't return to start position
+		x=x2+x;
 	}
 
 	//Get Y Axis Value
-	y = Joystick2->GetY();
+	y = Joystick2->GetThrottle();
 	//If Y is close to 0, reset it to 0
 	if(y<.2 && y>-.2){
 		y = 0;
+	}else{
+		//Add current Y to temp value so motor doesn't return to start position
+		y=y2+y;
 	}
 
 
 	//Servo X
-	Robot::servos->servoX->Set(x);
+	Robot::servos->servoX->Set(x2);
 	//Servo Y
-	Robot::servos->servoY->Set(y);
+	Robot::servos->servoY->Set(y2);
 }
 
 // Make this return true when this Command no longer needs to run execute()
