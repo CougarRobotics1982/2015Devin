@@ -27,13 +27,19 @@ void Servo_Control::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Servo_Control::Execute() {
+	static bool isrun;
 
 	Joystick * Joystick2;
 	Joystick2 = Robot::oi->getXbox();
-	double x;
+	double x;//value from controller
 	double y;
-	double x2 = 0;
-	double y2 = 0;
+	static double x2;//permanent value for servo that records changes
+	static double y2;
+	if(!isrun){
+		x2 = 0;
+		y2 = 0;
+		isrun = true;
+	}
 	//Get X Axis Value
 	x = Joystick2->GetZ();
 	//If X is close to 0, reset it to 0
@@ -41,7 +47,7 @@ void Servo_Control::Execute() {
 		x = 0;
 	}else {
 		//Add current X to temp value so motor doesn't return to start position
-		x=x2+x;
+		x2+=x;
 	}
 
 	//Get Y Axis Value
@@ -51,7 +57,7 @@ void Servo_Control::Execute() {
 		y = 0;
 	}else{
 		//Add current Y to temp value so motor doesn't return to start position
-		y=y2+y;
+		y2+=y;
 	}
 
 
