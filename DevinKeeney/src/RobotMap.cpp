@@ -66,7 +66,7 @@ void RobotMap::init() {
 	sensorsGyro1 = new Gyro(0);
 	lw->AddSensor("Sensors", "Gyro 1", sensorsGyro1);
 	sensorsGyro1->SetSensitivity(0.007);
-	sensorsGearToothSensor1 = new GearTooth(1, false);
+	sensorsGearToothSensor1 = new GearTooth(0, false);
 	lw->AddSensor("Sensors", "Gear Tooth Sensor 1", sensorsGearToothSensor1);
 	
 	servosServoX = new Servo(5);

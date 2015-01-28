@@ -35,23 +35,4 @@ void Servos::InitDefaultCommand() {
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-void Control(Joystick * js, Servo * sX,Servo * sY) {
-	double x;
-	double y;
-	//Get X Axis Value
-	x = js->GetZ();
-	//If X is close to 0, reset it to 0
-	if(x<.2 && x>-.2){
-		x = 0;
-	}
 
-	//Get Y Axis Value
-	y = js->GetThrottle();
-	//If Y is close to 0, reset it to 0
-	if(y<.2 && y>-.2){
-		y = 0;
-	}
-
-	sX->Set(x);
-	sY->Set(x);
-}

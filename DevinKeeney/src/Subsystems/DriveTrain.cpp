@@ -38,23 +38,4 @@ void DriveTrain::InitDefaultCommand() {
 
 // Put methods for controlling this subsystem
 // here. Call these from Commands.
-void DriveTrain::DriveEnable(Joystick * js) {
-	double x;
-	double y;
-	//Get X Axis Value
-	x = js->GetX();
-	//If X is close to 0, reset it to 0
-	if(x<.2 && x>-.2){
-		x = 0;
-	}
 
-	//Get Y Axis Value
-	y = js->GetY();
-	//If Y is close to 0, reset it to 0
-	if(y<.2 && y>-.2){
-		y = 0;
-	}
-
-	//Set Motor Speed
-	robotDrive41->ArcadeDrive(js);
-}

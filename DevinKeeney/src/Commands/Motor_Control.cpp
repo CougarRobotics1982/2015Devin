@@ -22,13 +22,12 @@ Motor_Control::Motor_Control() {
 
 // Called just before this Command runs the first time
 void Motor_Control::Initialize() {
-
+	
 }
 
 // Called repeatedly when this Command is scheduled to run
 void Motor_Control::Execute() {
-	Joystick*xbox=Robot::oi->getXbox();
-	Robot::driveTrain->DriveEnable(xbox);
+	
 }
 
 // Make this return true when this Command no longer needs to run execute()

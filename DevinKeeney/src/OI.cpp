@@ -29,7 +29,7 @@ OI::OI() {
 	xbox = new Joystick(0);
 	
 	writeSensorstoConsole = new JoystickButton(xbox, 4);
-	writeSensorstoConsole->WhenPressed(new Write_Sensors());
+	writeSensorstoConsole->WhileHeld(new Write_Sensors());
 	toggleServos = new JoystickButton(xbox, 3);
 	toggleServos->WhenPressed(new Servo_Control());
 	toggleDriveTrain = new JoystickButton(xbox, 2);

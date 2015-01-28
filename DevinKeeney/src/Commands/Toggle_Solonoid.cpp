@@ -22,9 +22,7 @@ Toggle_Solonoid::Toggle_Solonoid() {
 
 // Called just before this Command runs the first time
 void Toggle_Solonoid::Initialize() {
-	Robot::pneumatics->Toggle();
-	printf("Run");
-
+	
 }
 
 // Called repeatedly when this Command is scheduled to run
@@ -34,8 +32,7 @@ void Toggle_Solonoid::Execute() {
 
 // Make this return true when this Command no longer needs to run execute()
 bool Toggle_Solonoid::IsFinished() {
-	return true;
-
+	return false;
 }
 
 // Called once after isFinished returns true
