@@ -31,7 +31,7 @@ public:
 	static Compressor* pneumaticsCompressor;
 	static AnalogAccelerometer* sensorsAnalogAccelerometer1;
 	static Gyro* sensorsGyro1;
-	static GearTooth* sensorsGearToothSensor1;
+	static Encoder* sensorsEncoder;
 	static Servo* servosServoX;
 	static Servo* servosServoY;
 

@@ -23,7 +23,7 @@ DoubleSolenoid* RobotMap::pneumaticsDoubleSolenoid = NULL;
 Compressor* RobotMap::pneumaticsCompressor = NULL;
 AnalogAccelerometer* RobotMap::sensorsAnalogAccelerometer1 = NULL;
 Gyro* RobotMap::sensorsGyro1 = NULL;
-GearTooth* RobotMap::sensorsGearToothSensor1 = NULL;
+Encoder* RobotMap::sensorsEncoder = NULL;
 Servo* RobotMap::servosServoX = NULL;
 Servo* RobotMap::servosServoY = NULL;
 
@@ -66,9 +66,10 @@ void RobotMap::init() {
 	sensorsGyro1 = new Gyro(0);
 	lw->AddSensor("Sensors", "Gyro 1", sensorsGyro1);
 	sensorsGyro1->SetSensitivity(0.007);
-	sensorsGearToothSensor1 = new GearTooth(0, false);
-	lw->AddSensor("Sensors", "Gear Tooth Sensor 1", sensorsGearToothSensor1);
-	
+	sensorsEncoder = new Encoder(0, 1, false, Encoder::k4X);
+	lw->AddSensor("Sensors", "Encoder", sensorsEncoder);
+	sensorsEncoder->SetDistancePerPulse(1.0);
+        sensorsEncoder->SetPIDSourceParameter(Encoder::kRate);
 	servosServoX = new Servo(5);
 	lw->AddActuator("Servos", "Servo X", servosServoX);
 	
