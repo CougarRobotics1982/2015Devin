@@ -48,7 +48,7 @@ void RobotMap::init() {
 	driveTrainRobotDrive41 = new RobotDrive(driveTrainSpeedController1, driveTrainSpeedController2Talon,
               driveTrainSpeedController3, driveTrainSpeedController4);
 	
-	driveTrainRobotDrive41->SetSafetyEnabled(true);
+	driveTrainRobotDrive41->SetSafetyEnabled(false);
         driveTrainRobotDrive41->SetExpiration(0.1);
         driveTrainRobotDrive41->SetSensitivity(0.5);
         driveTrainRobotDrive41->SetMaxOutput(1.0);

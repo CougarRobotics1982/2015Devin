@@ -27,7 +27,21 @@ void Motor_Control::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Motor_Control::Execute() {
+	//Get Joystick Values
+	Joystick* js= Robot::oi->getXbox();
+	float x = js->GetX();
+	float y = js->GetY();
+	float z = js->GetZ();
 	
+	//These were for testing values on Joystick Values
+	//float rotation = js->GetTwist();
+	//float throttle = js->GetThrottle();
+
+	//Print out values, again for testing Joystick Values
+	//printf("X:%f Y:%f Z:%f Rotation:%f Throttle: %f \n",x,y,z,rotation,throttle);
+
+	//Mecanum Drive Creation and Control
+	Robot::driveTrain->robotDrive41->MecanumDrive_Cartesian(x,y,z);
 }
 
 // Make this return true when this Command no longer needs to run execute()

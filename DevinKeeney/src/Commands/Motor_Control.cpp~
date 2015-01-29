@@ -27,7 +27,17 @@ void Motor_Control::Initialize() {
 
 // Called repeatedly when this Command is scheduled to run
 void Motor_Control::Execute() {
+	//Get Joystick Values
+	Joystick* js= Robot::oi->getXbox();
+	float x = js->GetX();
+	float y = js->GetY();
+	float z = js->GetZ();
+	float rotation = js->GetTwist();
+	float throttle = js->GetThrottle();
+
+	printf("X:"+x+"Y:"+y+"Z:"+z+"Rotation:"+rotation+"Throttle:"+throttle);
 	
+	Robot::driveTrain->robotDrive41->HolonomicDrive(x,y,rotation);
 }
 
 // Make this return true when this Command no longer needs to run execute()

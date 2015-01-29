@@ -29,6 +29,11 @@ public:
 	virtual bool IsFinished();
 	virtual void End();
 	virtual void Interrupted();
+
+	float x;
+	float y;
+	float rotation;
+
 };
 
 #endif
